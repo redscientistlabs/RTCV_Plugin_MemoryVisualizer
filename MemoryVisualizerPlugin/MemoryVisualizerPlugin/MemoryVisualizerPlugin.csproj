@@ -32,35 +32,8 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CorruptCore">
-      <HintPath>..\..\..\RTCV\Build\CorruptCore.dll</HintPath>
-    </Reference>
-    <Reference Include="NetCore">
-      <HintPath>..\..\..\RTCV\Build\NetCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\Stubs\DLLS\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\..\..\..\RTCV\Build\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog.Windows.Forms">
-      <HintPath>..\..\..\..\RTCV\Build\NLog.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="PluginHost">
-      <HintPath>..\..\..\RTCV\Build\PluginHost.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RTCV.Common">
-      <HintPath>..\..\..\..\RTCV\Build\RTCV.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="SevenZipSharp">
-      <HintPath>..\..\..\..\RTCV\Build\SevenZipSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SlimDX">
-      <HintPath>..\..\..\..\RTCV\Build\SlimDX.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -72,12 +45,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UI">
-      <HintPath>..\..\..\RTCV\Build\UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Vanguard">
-      <HintPath>..\..\..\RTCV\Build\Vanguard.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -132,6 +99,9 @@
     <PackageReference Include="Costura.Fody">
       <Version>4.1.0</Version>
     </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>4.6.8</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xsd">
@@ -157,6 +127,32 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RTCV\Source\Frontend\UI\UI.csproj">
+      <Project>{bd376bb2-17ec-4fb0-a9fe-6b1bbf4af3e3}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RTCV\Source\Libraries\Common\Common.csproj">
+      <Project>{a31c17e1-2eab-434f-a022-20193f2ceab7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RTCV\Source\Libraries\CorruptCore\CorruptCore.csproj">
+      <Project>{b5633a86-dc66-4723-88eb-7dfc95458072}</Project>
+      <Name>CorruptCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RTCV\Source\Libraries\NetCore\NetCore.csproj">
+      <Project>{7e106aec-5614-4206-9e4d-25759c90e8ae}</Project>
+      <Name>NetCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RTCV\Source\Libraries\PluginHost\PluginHost.csproj">
+      <Project>{3f02eda3-6949-4b30-9cda-b56ffba0e976}</Project>
+      <Name>PluginHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RTCV\Source\Libraries\Vanguard\Vanguard.csproj">
+      <Project>{364c705e-b7ab-4a94-a59b-88899ce65958}</Project>
+      <Name>Vanguard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
