@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     partial class RealtimeBitmap
     {
@@ -29,7 +29,7 @@ namespace MemoryVisualizerPlugin.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.disp = new MemoryVisualizerPlugin.UI.BetterPictureDisplayer();
+            this.disp = new MemoryVizualizer.UI.BetterPictureDisplayer();
             ((System.ComponentModel.ISupportInitialize)(this.disp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,6 @@ namespace MemoryVisualizerPlugin.UI
 
         #endregion
 
-        private MemoryVisualizerPlugin.UI.BetterPictureDisplayer disp;
+        private MemoryVizualizer.UI.BetterPictureDisplayer disp;
     }
 }

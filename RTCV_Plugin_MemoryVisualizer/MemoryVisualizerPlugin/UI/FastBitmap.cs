@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Imaging;
 
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     //Made by KSHDO, used with permission https://github.com/ksHDO
     public class FastBitmap : IDisposable

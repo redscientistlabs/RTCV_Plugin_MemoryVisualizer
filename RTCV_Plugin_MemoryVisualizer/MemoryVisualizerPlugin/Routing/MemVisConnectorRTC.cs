@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MemoryVisualizerPlugin;
+using MemoryVizualizer;
 using RTCV.CorruptCore;
 using RTCV.NetCore;
 
-namespace MemoryVisualizerPlugin
+namespace MemoryVizualizer
 {
     /// <summary>
     /// This lies on the emulator side

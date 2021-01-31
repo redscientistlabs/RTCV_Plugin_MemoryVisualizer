@@ -1,4 +1,4 @@
-﻿namespace MemoryVisualizerPlugin.UI
+﻿namespace MemoryVizualizer.UI
 {
     partial class TrackBarNumber
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.nmControlValue = new System.Windows.Forms.NumericUpDown();
-            this.tbControlValue = new MemoryVisualizerPlugin.UI.NoFocusTrackBar();
+            this.tbControlValue = new MemoryVizualizer.UI.NoFocusTrackBar();
             this.lbControlName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmControlValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbControlValue)).BeginInit();

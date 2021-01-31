@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     using System;
     using System.Collections.Generic;
@@ -13,12 +13,12 @@ namespace MemoryVisualizerPlugin.UI
     using RTCV.NetCore;
     using RTCV.Common;
     using RTCV.UI;
-    using MemoryVisualizerPlugin.Formats;
+    using MemoryVizualizer.Formats;
     using static RTCV.CorruptCore.RtcCore;
     using RTCV.Vanguard;
     using System.IO;
 
-    public partial class MemoryVisualizer : Form
+    public partial class PluginForm : Form
     {
         public volatile bool HideOnClose = true;
         private long pageSize = 256 * 256;
@@ -63,7 +63,7 @@ namespace MemoryVisualizerPlugin.UI
         bool updatingDomains = false;
 
 
-        public MemoryVisualizer()
+        public PluginForm()
         {
             this.InitializeComponent();
             this.cbDomains.SelectedIndexChanged += new EventHandler(this.CbDomains_SelectedIndexChanged);

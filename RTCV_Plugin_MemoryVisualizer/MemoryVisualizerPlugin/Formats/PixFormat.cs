@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.Formats
+namespace MemoryVizualizer.Formats
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@ namespace MemoryVisualizerPlugin.Formats
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using MemoryVisualizerPlugin.UI;
+    using MemoryVizualizer.UI;
 
     public abstract class PixFormat
     {

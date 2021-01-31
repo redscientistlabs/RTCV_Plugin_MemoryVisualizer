@@ -1,7 +1,7 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
 
-    partial class MemoryVisualizer
+    partial class PluginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MemoryVisualizerPlugin.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemoryVisualizer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginForm));
             this.cbFormat = new System.Windows.Forms.ComboBox();
             this.labelLimiter = new System.Windows.Forms.Label();
             this.gbSettings = new System.Windows.Forms.GroupBox();
@@ -39,7 +39,7 @@ namespace MemoryVisualizerPlugin.UI
             this.label4 = new System.Windows.Forms.Label();
             this.bLoop = new System.Windows.Forms.Button();
             this.nRowAmt = new System.Windows.Forms.NumericUpDown();
-            this.sliderDelay = new MemoryVisualizerPlugin.UI.NumericTrackbar();
+            this.sliderDelay = new MemoryVizualizer.UI.NumericTrackbar();
             this.bPlusRow = new System.Windows.Forms.Button();
             this.bPullOnce = new System.Windows.Forms.Button();
             this.bMinusRow = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace MemoryVisualizerPlugin.UI
             this.label3 = new System.Windows.Forms.Label();
             this.bForwardPage = new System.Windows.Forms.Button();
             this.bBackFull = new System.Windows.Forms.Button();
-            this.sliderOffset = new MemoryVisualizerPlugin.UI.NumericTrackbar();
+            this.sliderOffset = new MemoryVizualizer.UI.NumericTrackbar();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nAlignment = new System.Windows.Forms.NumericUpDown();
@@ -58,7 +58,7 @@ namespace MemoryVisualizerPlugin.UI
             this.bCopyRange = new System.Windows.Forms.Button();
             this.bCopyImage = new System.Windows.Forms.Button();
             this.labelVersion = new System.Windows.Forms.Label();
-            this.display = new MemoryVisualizerPlugin.UI.RealtimeBitmap();
+            this.display = new MemoryVizualizer.UI.RealtimeBitmap();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nRowAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAlignment)).BeginInit();
@@ -573,10 +573,10 @@ namespace MemoryVisualizerPlugin.UI
         private System.Windows.Forms.NumericUpDown nWidth;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private MemoryVisualizerPlugin.UI.NumericTrackbar sliderOffset;
-        private MemoryVisualizerPlugin.UI.NumericTrackbar sliderDelay;
+        private MemoryVizualizer.UI.NumericTrackbar sliderOffset;
+        private MemoryVizualizer.UI.NumericTrackbar sliderDelay;
         private System.Windows.Forms.Button bPullOnce;
-        private MemoryVisualizerPlugin.UI.RealtimeBitmap display;
+        private MemoryVizualizer.UI.RealtimeBitmap display;
         private System.Windows.Forms.Button bLoop;
         private System.Windows.Forms.Button bForwardPage;
         private System.Windows.Forms.Button bBackFull;

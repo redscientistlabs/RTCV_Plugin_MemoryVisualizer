@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     public partial class TrackBarNumber : UserControl
     {

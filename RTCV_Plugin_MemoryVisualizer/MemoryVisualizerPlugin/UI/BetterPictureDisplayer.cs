@@ -1,7 +1,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     internal class BetterPictureDisplayer : PictureBox
     {

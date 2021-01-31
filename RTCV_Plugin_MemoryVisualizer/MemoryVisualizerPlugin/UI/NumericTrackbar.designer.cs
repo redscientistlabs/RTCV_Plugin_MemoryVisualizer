@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     partial class NumericTrackbar
     {
@@ -90,7 +90,7 @@ namespace MemoryVisualizerPlugin.UI
 
         #endregion
 
-        private MemoryVisualizerPlugin.UI.NoFocusTrackBar tbSlider;
+        private MemoryVizualizer.UI.NoFocusTrackBar tbSlider;
         private System.Windows.Forms.NumericUpDown nmBox;
         private System.Windows.Forms.Label lbName;
 

@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace MemoryVisualizerPlugin.UI
     using System.Windows;
     using System.Windows.Forms;
     using System.Drawing;
-    using MemoryVisualizerPlugin.Formats;
+    using MemoryVizualizer.Formats;
     public partial class RealtimeBitmap : UserControl
     {
         public FastBitmap bitmap = null;

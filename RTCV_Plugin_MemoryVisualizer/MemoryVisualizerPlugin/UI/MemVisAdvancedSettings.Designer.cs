@@ -1,4 +1,4 @@
-﻿namespace MemoryVisualizerPlugin.UI
+﻿namespace MemoryVizualizer.UI
 {
     partial class MemVisAdvancedSettings
     {

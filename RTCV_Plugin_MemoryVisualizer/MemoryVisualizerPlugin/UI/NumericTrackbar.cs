@@ -1,4 +1,4 @@
-namespace MemoryVisualizerPlugin.UI
+namespace MemoryVizualizer.UI
 {
     using System;
     using System.Collections.Generic;
