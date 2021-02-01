@@ -39,7 +39,6 @@ namespace MemoryVizualizer.UI
             this.label4 = new System.Windows.Forms.Label();
             this.bLoop = new System.Windows.Forms.Button();
             this.nRowAmt = new System.Windows.Forms.NumericUpDown();
-            this.sliderDelay = new MemoryVizualizer.UI.NumericTrackbar();
             this.bPlusRow = new System.Windows.Forms.Button();
             this.bPullOnce = new System.Windows.Forms.Button();
             this.bMinusRow = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@ namespace MemoryVizualizer.UI
             this.label3 = new System.Windows.Forms.Label();
             this.bForwardPage = new System.Windows.Forms.Button();
             this.bBackFull = new System.Windows.Forms.Button();
-            this.sliderOffset = new MemoryVizualizer.UI.NumericTrackbar();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nAlignment = new System.Windows.Forms.NumericUpDown();
@@ -59,11 +57,15 @@ namespace MemoryVizualizer.UI
             this.bCopyImage = new System.Windows.Forms.Button();
             this.labelVersion = new System.Windows.Forms.Label();
             this.display = new MemoryVizualizer.UI.RealtimeBitmap();
+            this.sliderDelay = new MemoryVizualizer.UI.NumericTrackbar();
+            this.sliderOffset = new MemoryVizualizer.UI.NumericTrackbar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nRowAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAlignment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWidth)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbFormat
@@ -94,15 +96,10 @@ namespace MemoryVizualizer.UI
             // gbSettings
             // 
             this.gbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSettings.Controls.Add(this.cbLegacyLoop);
             this.gbSettings.Controls.Add(this.label6);
             this.gbSettings.Controls.Add(this.label7);
-            this.gbSettings.Controls.Add(this.label4);
-            this.gbSettings.Controls.Add(this.bLoop);
             this.gbSettings.Controls.Add(this.nRowAmt);
-            this.gbSettings.Controls.Add(this.sliderDelay);
             this.gbSettings.Controls.Add(this.bPlusRow);
-            this.gbSettings.Controls.Add(this.bPullOnce);
             this.gbSettings.Controls.Add(this.bMinusRow);
             this.gbSettings.Controls.Add(this.bRefreshDomains);
             this.gbSettings.Controls.Add(this.label5);
@@ -122,7 +119,7 @@ namespace MemoryVizualizer.UI
             this.gbSettings.ForeColor = System.Drawing.Color.White;
             this.gbSettings.Location = new System.Drawing.Point(535, 12);
             this.gbSettings.Name = "gbSettings";
-            this.gbSettings.Size = new System.Drawing.Size(281, 438);
+            this.gbSettings.Size = new System.Drawing.Size(281, 318);
             this.gbSettings.TabIndex = 13;
             this.gbSettings.TabStop = false;
             this.gbSettings.Text = "Controls";
@@ -130,7 +127,7 @@ namespace MemoryVizualizer.UI
             // cbLegacyLoop
             // 
             this.cbLegacyLoop.AutoSize = true;
-            this.cbLegacyLoop.Location = new System.Drawing.Point(186, 335);
+            this.cbLegacyLoop.Location = new System.Drawing.Point(186, 15);
             this.cbLegacyLoop.Name = "cbLegacyLoop";
             this.cbLegacyLoop.Size = new System.Drawing.Size(89, 17);
             this.cbLegacyLoop.TabIndex = 163;
@@ -167,11 +164,11 @@ namespace MemoryVizualizer.UI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(186, 355);
+            this.label4.Location = new System.Drawing.Point(116, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(157, 13);
             this.label4.TabIndex = 154;
-            this.label4.Text = "Frames:";
+            this.label4.Text = "memory polled every x frames";
             // 
             // bLoop
             // 
@@ -180,9 +177,9 @@ namespace MemoryVizualizer.UI
             this.bLoop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bLoop.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.bLoop.ForeColor = System.Drawing.Color.White;
-            this.bLoop.Location = new System.Drawing.Point(6, 365);
+            this.bLoop.Location = new System.Drawing.Point(6, 63);
             this.bLoop.Name = "bLoop";
-            this.bLoop.Size = new System.Drawing.Size(102, 60);
+            this.bLoop.Size = new System.Drawing.Size(102, 48);
             this.bLoop.TabIndex = 19;
             this.bLoop.TabStop = false;
             this.bLoop.Tag = "color:light1";
@@ -217,21 +214,6 @@ namespace MemoryVizualizer.UI
             0});
             this.nRowAmt.ValueChanged += new System.EventHandler(this.nRowAmt_ValueChanged);
             // 
-            // sliderDelay
-            // 
-            this.sliderDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sliderDelay.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.sliderDelay.Hexadecimal = false;
-            this.sliderDelay.Label = "Poll Rate";
-            this.sliderDelay.Location = new System.Drawing.Point(114, 365);
-            this.sliderDelay.Maximum = ((long)(1000));
-            this.sliderDelay.Minimum = ((long)(1));
-            this.sliderDelay.Name = "sliderDelay";
-            this.sliderDelay.Size = new System.Drawing.Size(161, 60);
-            this.sliderDelay.TabIndex = 151;
-            this.sliderDelay.Tag = "color:dark1";
-            this.sliderDelay.Value = ((long)(1));
-            // 
             // bPlusRow
             // 
             this.bPlusRow.BackColor = System.Drawing.Color.Gray;
@@ -256,7 +238,7 @@ namespace MemoryVizualizer.UI
             this.bPullOnce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bPullOnce.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.bPullOnce.ForeColor = System.Drawing.Color.White;
-            this.bPullOnce.Location = new System.Drawing.Point(6, 335);
+            this.bPullOnce.Location = new System.Drawing.Point(6, 26);
             this.bPullOnce.Name = "bPullOnce";
             this.bPullOnce.Size = new System.Drawing.Size(102, 24);
             this.bPullOnce.TabIndex = 17;
@@ -370,21 +352,6 @@ namespace MemoryVizualizer.UI
             this.bBackFull.UseVisualStyleBackColor = false;
             this.bBackFull.Click += new System.EventHandler(this.bBackFull_Click);
             // 
-            // sliderOffset
-            // 
-            this.sliderOffset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sliderOffset.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.sliderOffset.Hexadecimal = true;
-            this.sliderOffset.Label = "Start Addr.";
-            this.sliderOffset.Location = new System.Drawing.Point(62, 214);
-            this.sliderOffset.Maximum = ((long)(65535));
-            this.sliderOffset.Minimum = ((long)(0));
-            this.sliderOffset.Name = "sliderOffset";
-            this.sliderOffset.Size = new System.Drawing.Size(161, 60);
-            this.sliderOffset.TabIndex = 150;
-            this.sliderOffset.Tag = "color:dark1";
-            this.sliderOffset.Value = ((long)(0));
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -481,15 +448,15 @@ namespace MemoryVizualizer.UI
             // 
             // bCopyRange
             // 
-            this.bCopyRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCopyRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bCopyRange.BackColor = System.Drawing.Color.Gray;
             this.bCopyRange.FlatAppearance.BorderSize = 0;
             this.bCopyRange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCopyRange.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.bCopyRange.ForeColor = System.Drawing.Color.White;
-            this.bCopyRange.Location = new System.Drawing.Point(535, 463);
+            this.bCopyRange.Location = new System.Drawing.Point(535, 469);
             this.bCopyRange.Name = "bCopyRange";
-            this.bCopyRange.Size = new System.Drawing.Size(135, 60);
+            this.bCopyRange.Size = new System.Drawing.Size(135, 54);
             this.bCopyRange.TabIndex = 164;
             this.bCopyRange.TabStop = false;
             this.bCopyRange.Tag = "color:light1";
@@ -499,15 +466,15 @@ namespace MemoryVizualizer.UI
             // 
             // bCopyImage
             // 
-            this.bCopyImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCopyImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bCopyImage.BackColor = System.Drawing.Color.Gray;
             this.bCopyImage.FlatAppearance.BorderSize = 0;
             this.bCopyImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCopyImage.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.bCopyImage.ForeColor = System.Drawing.Color.White;
-            this.bCopyImage.Location = new System.Drawing.Point(692, 463);
+            this.bCopyImage.Location = new System.Drawing.Point(692, 469);
             this.bCopyImage.Name = "bCopyImage";
-            this.bCopyImage.Size = new System.Drawing.Size(124, 60);
+            this.bCopyImage.Size = new System.Drawing.Size(124, 54);
             this.bCopyImage.TabIndex = 165;
             this.bCopyImage.TabStop = false;
             this.bCopyImage.Tag = "color:light1";
@@ -517,12 +484,14 @@ namespace MemoryVizualizer.UI
             // 
             // labelVersion
             // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVersion.AutoSize = true;
             this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.labelVersion.ForeColor = System.Drawing.Color.White;
-            this.labelVersion.Location = new System.Drawing.Point(754, 7);
+            this.labelVersion.Location = new System.Drawing.Point(745, 7);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(72, 13);
+            this.labelVersion.Padding = new System.Windows.Forms.Padding(4);
+            this.labelVersion.Size = new System.Drawing.Size(80, 21);
             this.labelVersion.TabIndex = 164;
             this.labelVersion.Text = "Verison 1.1.0";
             // 
@@ -537,12 +506,60 @@ namespace MemoryVizualizer.UI
             this.display.Size = new System.Drawing.Size(512, 512);
             this.display.TabIndex = 18;
             // 
-            // MemoryVisualizer
+            // sliderDelay
+            // 
+            this.sliderDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sliderDelay.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.sliderDelay.Hexadecimal = false;
+            this.sliderDelay.Label = "Poll Rate";
+            this.sliderDelay.Location = new System.Drawing.Point(114, 61);
+            this.sliderDelay.Maximum = ((long)(1000));
+            this.sliderDelay.Minimum = ((long)(1));
+            this.sliderDelay.Name = "sliderDelay";
+            this.sliderDelay.Size = new System.Drawing.Size(161, 60);
+            this.sliderDelay.TabIndex = 151;
+            this.sliderDelay.Tag = "color:dark1";
+            this.sliderDelay.Value = ((long)(1));
+            // 
+            // sliderOffset
+            // 
+            this.sliderOffset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sliderOffset.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.sliderOffset.Hexadecimal = true;
+            this.sliderOffset.Label = "Start Addr.";
+            this.sliderOffset.Location = new System.Drawing.Point(62, 214);
+            this.sliderOffset.Maximum = ((long)(65535));
+            this.sliderOffset.Minimum = ((long)(0));
+            this.sliderOffset.Name = "sliderOffset";
+            this.sliderOffset.Size = new System.Drawing.Size(161, 60);
+            this.sliderOffset.TabIndex = 150;
+            this.sliderOffset.Tag = "color:dark1";
+            this.sliderOffset.Value = ((long)(0));
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbLegacyLoop);
+            this.groupBox1.Controls.Add(this.bLoop);
+            this.groupBox1.Controls.Add(this.bPullOnce);
+            this.groupBox1.Controls.Add(this.sliderDelay);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(535, 336);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(281, 127);
+            this.groupBox1.TabIndex = 164;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Auto-Refresh";
+            // 
+            // PluginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(828, 535);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.bCopyImage);
             this.Controls.Add(this.bCopyRange);
@@ -550,7 +567,7 @@ namespace MemoryVizualizer.UI
             this.Controls.Add(this.gbSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MemoryVisualizer";
+            this.Name = "PluginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "color:dark1";
             this.Text = "Memory Visualizer";
@@ -560,6 +577,8 @@ namespace MemoryVizualizer.UI
             ((System.ComponentModel.ISupportInitialize)(this.nAlignment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWidth)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,5 +613,6 @@ namespace MemoryVizualizer.UI
         private System.Windows.Forms.Button bCopyRange;
         private System.Windows.Forms.Button bCopyImage;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

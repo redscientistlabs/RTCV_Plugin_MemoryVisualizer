@@ -17,8 +17,9 @@ namespace MemoryVizualizer.UI
     using static RTCV.CorruptCore.RtcCore;
     using RTCV.Vanguard;
     using System.IO;
+    using RTCV.UI.Modular;
 
-    public partial class PluginForm : Form
+    public partial class PluginForm : ComponentForm, IColorize
     {
         public volatile bool HideOnClose = true;
         private long pageSize = 256 * 256;
@@ -62,10 +63,12 @@ namespace MemoryVizualizer.UI
         Logger logger = NLog.LogManager.GetCurrentClassLogger();
         bool updatingDomains = false;
 
+        public static PluginForm pForm;
 
         public PluginForm()
         {
             this.InitializeComponent();
+            pForm = this;
             this.cbDomains.SelectedIndexChanged += new EventHandler(this.CbDomains_SelectedIndexChanged);
             this.sliderOffset.ValueChanged += new Action<object, EventArgs>(this.SliderOffset_ValueChanged);
             this.sliderDelay.ValueChanged += new Action<object, EventArgs>(this.SliderDelay_ValueChanged);
@@ -116,16 +119,26 @@ namespace MemoryVizualizer.UI
 
         //Gives illusion of smoothness, skipping frames where it is still getting the previous frame
         //executes on a task
+
+        bool inStep = false; //dont let steps be counted if still in operation. lag like an old machine.
         private void StepActions_StepEnd(object sender, EventArgs e)
         {
-            if (running)
+            if (running && !inStep)
             {
+                inStep = true;
                 framesToNextExecute--;
                 if (framesToNextExecute <= 0)
                 {
                     if (!gettingBytes)
                     {
-                        Task.Run(LoopMethod);
+                        try
+                        {
+                            LoopMethod();
+                        }
+                        finally
+                        {
+                            inStep = false;
+                        }
                     }
                     framesToNextExecute = delayFrames;
                 }
@@ -254,30 +267,43 @@ namespace MemoryVizualizer.UI
 
         private void UpdateImage()
         {
-            //if (this.Domain == null) { return; } included in get interface
-            var mi = MemoryDomains.GetInterface(Domain);
-            if (mi == null) { return; }
-
-            long start = this.offset + this.align;
-            long end = start + ((long)(display.W * display.H) * this.display.curFormat.BytesWide);
-            //long numBytesToGet = this.w * this.h * this.display.curFormat.BytesWide;
-            if (end >= mi.Size)
+            try
             {
-                end = mi.Size - 1;
-            }
 
-            byte[] byteArr = mi.PeekBytes(start, end, true);
-            //byte[] byteArr = this.GetByteArr(start, start + (long)numBytesToGet);
-            this.rangeStartAddress = start;
-            this.rangeEndAddress = end + 1L; //+1 because vmds are exclusive
-            if (byteArr == null)
-            {
+                //if (this.Domain == null) { return; } included in get interface
+                var mi = MemoryDomains.GetInterface(Domain);
+                if (mi == null) { return; }
+
+                long start = this.offset + this.align;
+                long end = start + ((long)(display.W * display.H) * this.display.curFormat.BytesWide);
+                //long numBytesToGet = this.w * this.h * this.display.curFormat.BytesWide;
+                if (end >= mi.Size)
+                {
+                    end = mi.Size - 1;
+                }
+
+                byte[] byteArr = mi.PeekBytes(start, end, true);
+                //byte[] byteArr = this.GetByteArr(start, start + (long)numBytesToGet);
                 this.rangeStartAddress = start;
-                this.rangeEndAddress = end + 1L;
-                return;
+                this.rangeEndAddress = end + 1L; //+1 because vmds are exclusive
+                if (byteArr == null)
+                {
+                    this.rangeStartAddress = start;
+                    this.rangeEndAddress = end + 1L;
+                    return;
+                }
+
+                SyncObjectSingleton.SyncObjectExecute(PluginForm.pForm, (o, e) =>
+                { //this forces that part of code to execute on the main thread
+                    this.display.SetBytes(byteArr);
+                    this.display.Refresh();
+                });
             }
-            this.display.SetBytes(byteArr);
-            this.display.Refresh();
+            catch(Exception ex)
+            {
+                StopRunning();//failsafe
+                throw ex;
+            }
         }
 
         //private byte[] GetByteArr(long start, long end)
@@ -365,11 +391,19 @@ namespace MemoryVizualizer.UI
                     //if (!this.legacyLoop)
                     //    return;
                     //await this.LegacyLoop();
+
+
+                    //todo, remove this when we've fixed the cross-thread issues
+                    //gbSettings.Enabled = false;
+
                 }
                 else
                 {
                     this.bPullOnce.Enabled = true;
                     this.StopRunning();
+
+                    //todo, remove this when we've fixed the cross-thread issues
+                    //gbSettings.Enabled = true;
                 }
             }
         }
