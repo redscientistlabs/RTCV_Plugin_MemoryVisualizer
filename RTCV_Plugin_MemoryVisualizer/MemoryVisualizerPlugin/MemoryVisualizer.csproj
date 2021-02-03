@@ -40,10 +40,6 @@
       <HintPath>..\..\..\RTCV\Build\NetCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\Stubs\DLLS\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="NLog.Windows.Forms">
       <HintPath>..\..\..\RTCV\Build\NLog.Windows.Forms.dll</HintPath>
       <Private>False</Private>
@@ -153,6 +149,7 @@
   <ItemGroup>
     <EmbeddedResource Include="UI\PluginForm.resx">
       <DependentUpon>PluginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MemVisAdvancedSettings.resx">
       <DependentUpon>MemVisAdvancedSettings.cs</DependentUpon>
@@ -169,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\RTCV\Source\Libraries\Common\Common.csproj">
+      <Project>{a31c17e1-2eab-434f-a022-20193f2ceab7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

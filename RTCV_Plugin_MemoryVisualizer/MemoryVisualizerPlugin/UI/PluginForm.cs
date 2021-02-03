@@ -113,7 +113,7 @@ namespace MemoryVizualizer.UI
             lock (executeLock)
             {
                 this.delayFrames = (int)this.sliderDelay.Value;
-                this.framesToNextExecute = this.delayFrames;
+                this.framesToNextExecute = (int)this.sliderDelay.Value;
             }
         }
 
@@ -126,21 +126,22 @@ namespace MemoryVizualizer.UI
             if (running && !inStep)
             {
                 inStep = true;
-                framesToNextExecute--;
-                if (framesToNextExecute <= 0)
+                
+                try
                 {
-                    if (!gettingBytes)
+                    framesToNextExecute--;
+                    if (framesToNextExecute <= 0)
                     {
-                        try
+                        if (!gettingBytes)
                         {
                             LoopMethod();
                         }
-                        finally
-                        {
-                            inStep = false;
-                        }
+                        framesToNextExecute = delayFrames;
                     }
-                    framesToNextExecute = delayFrames;
+                }
+                finally
+                {
+                    inStep = false;
                 }
             }
         }

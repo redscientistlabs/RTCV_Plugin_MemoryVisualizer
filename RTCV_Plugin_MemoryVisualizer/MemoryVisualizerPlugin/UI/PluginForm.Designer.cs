@@ -33,14 +33,10 @@ namespace MemoryVizualizer.UI
             this.cbFormat = new System.Windows.Forms.ComboBox();
             this.labelLimiter = new System.Windows.Forms.Label();
             this.gbSettings = new System.Windows.Forms.GroupBox();
-            this.cbLegacyLoop = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.bLoop = new System.Windows.Forms.Button();
             this.nRowAmt = new System.Windows.Forms.NumericUpDown();
             this.bPlusRow = new System.Windows.Forms.Button();
-            this.bPullOnce = new System.Windows.Forms.Button();
             this.bMinusRow = new System.Windows.Forms.Button();
             this.bRefreshDomains = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,17 +44,21 @@ namespace MemoryVizualizer.UI
             this.label3 = new System.Windows.Forms.Label();
             this.bForwardPage = new System.Windows.Forms.Button();
             this.bBackFull = new System.Windows.Forms.Button();
+            this.sliderOffset = new MemoryVizualizer.UI.NumericTrackbar();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nAlignment = new System.Windows.Forms.NumericUpDown();
             this.nHeight = new System.Windows.Forms.NumericUpDown();
             this.nWidth = new System.Windows.Forms.NumericUpDown();
+            this.cbLegacyLoop = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bLoop = new System.Windows.Forms.Button();
+            this.bPullOnce = new System.Windows.Forms.Button();
             this.bCopyRange = new System.Windows.Forms.Button();
             this.bCopyImage = new System.Windows.Forms.Button();
             this.labelVersion = new System.Windows.Forms.Label();
             this.display = new MemoryVizualizer.UI.RealtimeBitmap();
             this.sliderDelay = new MemoryVizualizer.UI.NumericTrackbar();
-            this.sliderOffset = new MemoryVizualizer.UI.NumericTrackbar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nRowAmt)).BeginInit();
@@ -124,18 +124,6 @@ namespace MemoryVizualizer.UI
             this.gbSettings.TabStop = false;
             this.gbSettings.Text = "Controls";
             // 
-            // cbLegacyLoop
-            // 
-            this.cbLegacyLoop.AutoSize = true;
-            this.cbLegacyLoop.Location = new System.Drawing.Point(186, 15);
-            this.cbLegacyLoop.Name = "cbLegacyLoop";
-            this.cbLegacyLoop.Size = new System.Drawing.Size(89, 17);
-            this.cbLegacyLoop.TabIndex = 163;
-            this.cbLegacyLoop.Text = "Legacy Loop";
-            this.cbLegacyLoop.UseVisualStyleBackColor = true;
-            this.cbLegacyLoop.Visible = false;
-            this.cbLegacyLoop.CheckedChanged += new System.EventHandler(this.cbLegacyLoop_CheckedChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -158,34 +146,6 @@ namespace MemoryVizualizer.UI
             this.label7.TabIndex = 161;
             this.label7.Text = "Image:";
             this.label7.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(116, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 13);
-            this.label4.TabIndex = 154;
-            this.label4.Text = "memory polled every x frames";
-            // 
-            // bLoop
-            // 
-            this.bLoop.BackColor = System.Drawing.Color.Gray;
-            this.bLoop.FlatAppearance.BorderSize = 0;
-            this.bLoop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bLoop.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.bLoop.ForeColor = System.Drawing.Color.White;
-            this.bLoop.Location = new System.Drawing.Point(6, 63);
-            this.bLoop.Name = "bLoop";
-            this.bLoop.Size = new System.Drawing.Size(102, 48);
-            this.bLoop.TabIndex = 19;
-            this.bLoop.TabStop = false;
-            this.bLoop.Tag = "color:light1";
-            this.bLoop.Text = "Start Updating";
-            this.bLoop.UseVisualStyleBackColor = false;
-            this.bLoop.Click += new System.EventHandler(this.bLoop_Click);
             // 
             // nRowAmt
             // 
@@ -230,23 +190,6 @@ namespace MemoryVizualizer.UI
             this.bPlusRow.Text = "Row";
             this.bPlusRow.UseVisualStyleBackColor = false;
             this.bPlusRow.Click += new System.EventHandler(this.bPlusRow_Click);
-            // 
-            // bPullOnce
-            // 
-            this.bPullOnce.BackColor = System.Drawing.Color.Gray;
-            this.bPullOnce.FlatAppearance.BorderSize = 0;
-            this.bPullOnce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bPullOnce.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.bPullOnce.ForeColor = System.Drawing.Color.White;
-            this.bPullOnce.Location = new System.Drawing.Point(6, 26);
-            this.bPullOnce.Name = "bPullOnce";
-            this.bPullOnce.Size = new System.Drawing.Size(102, 24);
-            this.bPullOnce.TabIndex = 17;
-            this.bPullOnce.TabStop = false;
-            this.bPullOnce.Tag = "color:light1";
-            this.bPullOnce.Text = "Update Once";
-            this.bPullOnce.UseVisualStyleBackColor = false;
-            this.bPullOnce.Click += new System.EventHandler(this.bPullOnce_Click);
             // 
             // bMinusRow
             // 
@@ -352,6 +295,21 @@ namespace MemoryVizualizer.UI
             this.bBackFull.UseVisualStyleBackColor = false;
             this.bBackFull.Click += new System.EventHandler(this.bBackFull_Click);
             // 
+            // sliderOffset
+            // 
+            this.sliderOffset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sliderOffset.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.sliderOffset.Hexadecimal = true;
+            this.sliderOffset.Label = "Start Addr.";
+            this.sliderOffset.Location = new System.Drawing.Point(62, 214);
+            this.sliderOffset.Maximum = ((long)(65535));
+            this.sliderOffset.Minimum = ((long)(0));
+            this.sliderOffset.Name = "sliderOffset";
+            this.sliderOffset.Size = new System.Drawing.Size(161, 60);
+            this.sliderOffset.TabIndex = 150;
+            this.sliderOffset.Tag = "color:dark1";
+            this.sliderOffset.Value = ((long)(0));
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -446,6 +404,63 @@ namespace MemoryVizualizer.UI
             0});
             this.nWidth.ValueChanged += new System.EventHandler(this.nWidth_ValueChanged);
             // 
+            // cbLegacyLoop
+            // 
+            this.cbLegacyLoop.AutoSize = true;
+            this.cbLegacyLoop.Location = new System.Drawing.Point(186, 15);
+            this.cbLegacyLoop.Name = "cbLegacyLoop";
+            this.cbLegacyLoop.Size = new System.Drawing.Size(89, 17);
+            this.cbLegacyLoop.TabIndex = 163;
+            this.cbLegacyLoop.Text = "Legacy Loop";
+            this.cbLegacyLoop.UseVisualStyleBackColor = true;
+            this.cbLegacyLoop.Visible = false;
+            this.cbLegacyLoop.CheckedChanged += new System.EventHandler(this.cbLegacyLoop_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(116, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(157, 13);
+            this.label4.TabIndex = 154;
+            this.label4.Text = "memory polled every x frames";
+            // 
+            // bLoop
+            // 
+            this.bLoop.BackColor = System.Drawing.Color.Gray;
+            this.bLoop.FlatAppearance.BorderSize = 0;
+            this.bLoop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bLoop.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.bLoop.ForeColor = System.Drawing.Color.White;
+            this.bLoop.Location = new System.Drawing.Point(6, 63);
+            this.bLoop.Name = "bLoop";
+            this.bLoop.Size = new System.Drawing.Size(102, 48);
+            this.bLoop.TabIndex = 19;
+            this.bLoop.TabStop = false;
+            this.bLoop.Tag = "color:light1";
+            this.bLoop.Text = "Start Updating";
+            this.bLoop.UseVisualStyleBackColor = false;
+            this.bLoop.Click += new System.EventHandler(this.bLoop_Click);
+            // 
+            // bPullOnce
+            // 
+            this.bPullOnce.BackColor = System.Drawing.Color.Gray;
+            this.bPullOnce.FlatAppearance.BorderSize = 0;
+            this.bPullOnce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bPullOnce.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.bPullOnce.ForeColor = System.Drawing.Color.White;
+            this.bPullOnce.Location = new System.Drawing.Point(6, 26);
+            this.bPullOnce.Name = "bPullOnce";
+            this.bPullOnce.Size = new System.Drawing.Size(102, 24);
+            this.bPullOnce.TabIndex = 17;
+            this.bPullOnce.TabStop = false;
+            this.bPullOnce.Tag = "color:light1";
+            this.bPullOnce.Text = "Update Once";
+            this.bPullOnce.UseVisualStyleBackColor = false;
+            this.bPullOnce.Click += new System.EventHandler(this.bPullOnce_Click);
+            // 
             // bCopyRange
             // 
             this.bCopyRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -520,21 +535,6 @@ namespace MemoryVizualizer.UI
             this.sliderDelay.TabIndex = 151;
             this.sliderDelay.Tag = "color:dark1";
             this.sliderDelay.Value = ((long)(1));
-            // 
-            // sliderOffset
-            // 
-            this.sliderOffset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sliderOffset.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.sliderOffset.Hexadecimal = true;
-            this.sliderOffset.Label = "Start Addr.";
-            this.sliderOffset.Location = new System.Drawing.Point(62, 214);
-            this.sliderOffset.Maximum = ((long)(65535));
-            this.sliderOffset.Minimum = ((long)(0));
-            this.sliderOffset.Name = "sliderOffset";
-            this.sliderOffset.Size = new System.Drawing.Size(161, 60);
-            this.sliderOffset.TabIndex = 150;
-            this.sliderOffset.Tag = "color:dark1";
-            this.sliderOffset.Value = ((long)(0));
             // 
             // groupBox1
             // 
