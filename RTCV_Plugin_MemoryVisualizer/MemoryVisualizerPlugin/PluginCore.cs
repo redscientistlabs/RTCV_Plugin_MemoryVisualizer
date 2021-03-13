@@ -37,7 +37,7 @@ namespace MemoryVizualizer
             if (side == RTCSide.Client)
             {
                 connectorEMU = new MemVisConnectorEMU();
-                S.SET<PluginForm>(new PluginForm());
+                //S.SET<PluginForm>(new PluginForm());
             }
             else if (side == RTCSide.Server)
             {
