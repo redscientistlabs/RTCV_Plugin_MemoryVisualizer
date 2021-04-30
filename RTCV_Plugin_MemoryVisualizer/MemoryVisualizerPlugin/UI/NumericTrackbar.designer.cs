@@ -90,7 +90,7 @@ namespace MemoryVizualizer.UI
 
         #endregion
 
-        private MemoryVizualizer.UI.NoFocusTrackBar tbSlider;
+        private global::MemoryVizualizer.UI.NoFocusTrackBar tbSlider;
         private System.Windows.Forms.NumericUpDown nmBox;
         private System.Windows.Forms.Label lbName;
 

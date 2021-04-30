@@ -94,6 +94,8 @@ namespace MemoryVizualizer.UI
             StepActions.StepEnd += this.StepActions_StepEnd;
 
             this.Load += MemoryVisualizer_Load;
+
+            this.labelVersion.Text = $"{PluginCore.Ver.ToString()}"; //automatic window title
         }
 
         private void MemoryVisualizer_Load(object sender, EventArgs e)
