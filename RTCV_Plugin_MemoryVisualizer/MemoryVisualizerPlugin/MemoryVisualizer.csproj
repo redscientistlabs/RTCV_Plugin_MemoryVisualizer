@@ -135,10 +135,12 @@
       <Version>4.1.7</Version>
     </PackageReference>
     <PackageReference Include="Costura.Fody">
-      <Version>4.1.0</Version>
+      <Version>5.7.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>4.6.8</Version>
+      <Version>4.7.15</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
