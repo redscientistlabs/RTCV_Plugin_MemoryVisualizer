@@ -409,6 +409,7 @@ namespace MemoryVizualizer.UI
                     //gbSettings.Enabled = true;
                 }
             }
+            await Task.Delay(1);
         }
 
         private void nAlignment_ValueChanged(object sender, EventArgs e)
@@ -479,6 +480,7 @@ namespace MemoryVizualizer.UI
                 this.sliderOffset.Value -= this.pageSize;
                 this.UpdateImage();
             }
+            await Task.Delay(1);
         }
 
         private async void bForwardPage_Click(object sender, EventArgs e)
@@ -487,8 +489,8 @@ namespace MemoryVizualizer.UI
             {
                 this.sliderOffset.Value += this.pageSize;
                 this.UpdateImage();
-                
             }
+            await Task.Delay(1);
         }
 
         private void bMinusRow_Click(object sender, EventArgs e)
