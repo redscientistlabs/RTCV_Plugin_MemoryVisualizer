@@ -99,15 +99,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Ceras">
-      <Version>4.1.7</Version>
-    </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>5.7.0</Version>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>4.7.15</Version>
+      <Version>5.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
