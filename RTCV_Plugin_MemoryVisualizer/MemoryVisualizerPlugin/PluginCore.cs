@@ -24,7 +24,7 @@ namespace MemoryVizualizer
         public string Author => "NullShock78";
 
         public Version Version => Ver;
-        public static Version Ver => new Version(1, 1, 0);
+        public static Version Ver => new Version(1, 1, 1);
 
         public RTCSide SupportedSide => RTCSide.Both;
 

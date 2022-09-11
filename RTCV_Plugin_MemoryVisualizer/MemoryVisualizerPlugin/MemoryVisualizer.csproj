@@ -103,9 +103,6 @@
       <Version>5.7.0</Version>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NLog">
-      <Version>5.0.1</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xsd">
